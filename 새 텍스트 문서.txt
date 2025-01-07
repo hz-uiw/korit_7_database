@@ -7,7 +7,7 @@ SELECT
 		from
 			course_tb
 		where
-			course_tb.course_id = course_registering_information_tb.couse.id)
+			course_tb.course_id = course_registering_information_tb.course_id)
 	from
 		course_registering_information_tb
 	where
@@ -20,6 +20,7 @@ where
 
 
 resgistering_information_tb에서
+문제 해결
 
 SELECT
 	(select
