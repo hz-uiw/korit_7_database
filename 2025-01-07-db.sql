@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `study` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `study`;
 -- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: study
@@ -31,7 +33,7 @@ CREATE TABLE `course_registering_information_tb` (
   `course_duration_end` date NOT NULL,
   `major_id` int NOT NULL,
   PRIMARY KEY (`course_registering_information_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +42,7 @@ CREATE TABLE `course_registering_information_tb` (
 
 LOCK TABLES `course_registering_information_tb` WRITE;
 /*!40000 ALTER TABLE `course_registering_information_tb` DISABLE KEYS */;
+INSERT INTO `course_registering_information_tb` VALUES (1,1,2,'월','2025-01-07','2025-06-06',2),(2,1,2,'목','2025-01-07','2025-06-06',2),(3,1,3,'화','2025-01-07','2025-06-06',2),(4,1,3,'수','2025-01-07','2025-06-06',2),(5,2,1,'월','2025-03-07','2025-08-06',1),(6,2,1,'수','2025-03-07','2025-08-06',1),(7,3,1,'화','2025-02-07','2025-07-06',1),(8,3,1,'금','2025-02-07','2025-07-06',1),(9,4,3,'수','2025-03-07','2025-08-06',2),(10,4,3,'금','2025-03-07','2025-08-06',2);
 /*!40000 ALTER TABLE `course_registering_information_tb` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +58,7 @@ CREATE TABLE `course_registering_tb` (
   `course_registering_information_id` int NOT NULL,
   `student_id` int NOT NULL,
   PRIMARY KEY (`course_registering_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,6 +67,7 @@ CREATE TABLE `course_registering_tb` (
 
 LOCK TABLES `course_registering_tb` WRITE;
 /*!40000 ALTER TABLE `course_registering_tb` DISABLE KEYS */;
+INSERT INTO `course_registering_tb` VALUES (1,1,1),(2,1,2),(3,1,3),(4,1,4),(5,2,2),(6,2,4),(7,3,1),(8,3,3),(9,4,1),(10,4,2),(11,4,3),(12,5,1),(13,5,2),(14,6,1),(15,6,2),(16,6,3);
 /*!40000 ALTER TABLE `course_registering_tb` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,7 +83,7 @@ CREATE TABLE `course_tb` (
   `course_name` varchar(45) NOT NULL,
   PRIMARY KEY (`course_id`),
   UNIQUE KEY `course_name_UNIQUE` (`course_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,6 +92,7 @@ CREATE TABLE `course_tb` (
 
 LOCK TABLES `course_tb` WRITE;
 /*!40000 ALTER TABLE `course_tb` DISABLE KEYS */;
+INSERT INTO `course_tb` VALUES (1,'데이터베이스론'),(2,'알고리즘'),(3,'운영체제'),(4,'자료구조');
 /*!40000 ALTER TABLE `course_tb` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,6 +118,7 @@ CREATE TABLE `courses` (
 
 LOCK TABLES `courses` WRITE;
 /*!40000 ALTER TABLE `courses` DISABLE KEYS */;
+INSERT INTO `courses` VALUES ('데이터베이스론','김 교수','홍길동','컴퓨터공학','남'),('데이터베이스론','김 교수','김영희','소프트웨어공학','여'),('데이터베이스론','김 교수','김철수','컴퓨터공학','남'),('알고리즘','박 교수','김영희','소프트웨어공학','여'),('알고리즘','박 교수','김철수','컴퓨터공학','남'),('운영체제','이 교수','홍길동','컴퓨터공학','남');
 /*!40000 ALTER TABLE `courses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,7 +133,7 @@ CREATE TABLE `instructor_tb` (
   `instructor_id` int NOT NULL AUTO_INCREMENT,
   `instructor_name` varchar(45) NOT NULL,
   PRIMARY KEY (`instructor_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,6 +142,7 @@ CREATE TABLE `instructor_tb` (
 
 LOCK TABLES `instructor_tb` WRITE;
 /*!40000 ALTER TABLE `instructor_tb` DISABLE KEYS */;
+INSERT INTO `instructor_tb` VALUES (1,'김교수'),(2,'박교수'),(3,'이교수');
 /*!40000 ALTER TABLE `instructor_tb` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,7 +158,7 @@ CREATE TABLE `major_tb` (
   `major_name` varchar(45) NOT NULL,
   PRIMARY KEY (`major_id`),
   UNIQUE KEY `major_name_UNIQUE` (`major_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,6 +167,7 @@ CREATE TABLE `major_tb` (
 
 LOCK TABLES `major_tb` WRITE;
 /*!40000 ALTER TABLE `major_tb` DISABLE KEYS */;
+INSERT INTO `major_tb` VALUES (2,'소프트웨어공학과'),(1,'컴퓨터공학과');
 /*!40000 ALTER TABLE `major_tb` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +185,7 @@ CREATE TABLE `student_tb` (
   `gender` varchar(45) NOT NULL,
   `major_id` int NOT NULL,
   PRIMARY KEY (`student_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,6 +194,7 @@ CREATE TABLE `student_tb` (
 
 LOCK TABLES `student_tb` WRITE;
 /*!40000 ALTER TABLE `student_tb` DISABLE KEYS */;
+INSERT INTO `student_tb` VALUES (1,'최석현',3,'남',1),(2,'백진우',4,'남',1),(3,'박소율',3,'여',2),(4,'정현영',4,'여',1);
 /*!40000 ALTER TABLE `student_tb` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -198,4 +207,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-07 17:07:12
+-- Dump completed on 2025-01-07 17:18:22

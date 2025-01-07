@@ -1,0 +1,44 @@
+student_tb에서
+
+SELECT
+	(select
+		(select
+			course_name
+		from
+			course_tb
+		where
+			course_tb.course_id = course_registering_information_tb.couse.id)
+	from
+		course_registering_information_tb
+	where
+		course_registering_information_tb.course_registering_information_id = course_registering_tb.course_registering_information_id) as course_name
+from
+	course_registering_tb
+where
+	student_id = (select student_id from student_tb where student_name = '백진우');
+            
+
+
+resgistering_information_tb에서
+
+SELECT
+	(select
+		(select
+			course_name
+		from
+			course_tb as ct
+		where
+			ct.course_id = crit.course_id)
+	from
+		course_registering_information_tb as crit
+	where
+		crit.course_registering_information_id = crt.course_registering_information_id) as course_name
+FROM
+	course_registering_tb as crt
+WHERE
+	student_id = (select
+					student_id
+				from
+					student_tb
+				where
+					student_id = '백진우');
