@@ -1,10 +1,11 @@
 # select 
-
+# student_tb에서 모두 조회
 select
 	*
 from
 	student_tb;
-    
+
+# student_tb에서 학생 이름과 학년 조회
 select
 	student_name,
     student_year
@@ -12,6 +13,7 @@ from
 	student_tb;
 
 # where 조건
+# student_tb에서 지정한 범위 값만큼 조회
 select
 	*
 from
@@ -23,7 +25,7 @@ where
 # 범위 (3~4)
 --  student_year > 2 or student_year < 5;
 -- 	student_year >= 3 or student_year <= 4;
-	student_id between 3 and 4;
+	student_id between 3 and 4;		-- ->student_id가 3~4까지 조회
     
 select
 	10 as num,
@@ -57,7 +59,7 @@ select
 	3 as id,
     '수' as day;
     
-# union으로 테이블 합치기 -> id값 넣기
+# union으로 테이블 합치기 -> 컬럼 번호 넣기
 select
 	row_number() over(order by name) as `index`,
 	name
@@ -70,9 +72,9 @@ from
 	select
 		instructor_name
 	from
-		instructor_tb) as name_tb;
+		instructor_tb) as name_tb;		-- -> 서브쿼리를 한 테이블로 보기때문에 as 필수
 
-# union으로 테이블 합쳐서 id값 넣기 - row_nubmer() over() 사용
+# union으로 테이블 합쳐서 컬럼 번호 넣기 - row_nubmer() over() 사용
 select
 	row_number() over(order by student_name) as num,
 	student_name
