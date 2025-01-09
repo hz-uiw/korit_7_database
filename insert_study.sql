@@ -1,8 +1,8 @@
-insert into instructor_tb
+insert into instructor_tb(instructor_name)
 values
-	(default, '김교수'), 
-	(default, '박교수'), 
-	(default, '이교수');
+	('김교수'), 
+	('박교수'), 
+	('이교수');
     
 insert into course_tb
 values
