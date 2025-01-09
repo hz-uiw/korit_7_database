@@ -6,7 +6,8 @@ values
 	(default, '333'),
 	(default, '444'),
 	(default, '555');
-    
+
+#data2_tb
 select
 	*
 from
@@ -18,6 +19,12 @@ values
 	(default, 'ggg', 6),
 	(default, 'iii', 7);
     
+# data1_tb
+select
+	*
+from
+	data1_tb;
+
 select
 	*
 from
