@@ -38,6 +38,23 @@ having
 	book_count > 10
 order by
 	bt.publisher_id
-limit 0, 10 -- 시작인덱스, 가지고 올 갯수
+limit 0, 10; -- 시작인덱스, 가지고 올 갯수
 
 -- from -> where -> group by -> having -> select -> order by -> limit
+
+select
+	book_id,
+    book_name,
+    author_id,
+    isbn,
+    category_id,
+    publisher_id,
+    book_img_url
+from
+	(select
+		row_number() over(partition by category_id order by book_id) as num,
+        bt.*
+	from
+		book_tb bt) books
+where
+	num < 6
