@@ -93,7 +93,7 @@ order by
     
 # 문제
 select
-	row_number() over(order by `name` desc) as num,
+	row_number() over(order by `id`) as num,
 	name_tb.*
 from
 	(select
@@ -107,3 +107,36 @@ from
 		major_name
 	from
 		major_tb) as name_tb;
+        
+# rank
+select
+	-- rank() over(order by `id`) as num, # 공동 n등이 있으면, n + 1등은 없음
+	dense_rank() over(order by `id`) as num, # 공동 n등이 있으면, n + 1등이 있음
+	name_tb.*
+from
+	(select
+		course_id  as `id`,
+		course_name as `name`
+	from
+		course_tb
+	union
+	select
+		major_id,
+		major_name
+	from
+		major_tb) as name_tb;
+        
+        
+# where 와일드 카드(like)
+select
+	*
+from
+	instructor_tb
+where
+	instructor_name like '_교_';
+-- %s% => s가 들어가는 값
+-- s%	=> s로 시작하는 값
+-- %s	=> s로 끝나는 값
+-- _s_	=> s가 중간에 있는 세글자
+-- s_	=> s로 시작하는 두글자
+-- _s	=> s로 끝나는 두글자
