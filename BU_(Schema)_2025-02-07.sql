@@ -568,6 +568,31 @@ INSERT INTO `student_tb` VALUES (1,'최석현',3,'남',1),(2,'백진우',4,'남'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `user_role_tb`
+--
+
+DROP TABLE IF EXISTS `user_role_tb`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_role_tb` (
+  `user_role_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `role_id` int NOT NULL,
+  PRIMARY KEY (`user_role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_role_tb`
+--
+
+LOCK TABLES `user_role_tb` WRITE;
+/*!40000 ALTER TABLE `user_role_tb` DISABLE KEYS */;
+INSERT INTO `user_role_tb` VALUES (1,7,1),(2,9,1);
+/*!40000 ALTER TABLE `user_role_tb` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user_tb`
 --
 
@@ -582,7 +607,7 @@ CREATE TABLE `user_tb` (
   `email` varchar(45) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -591,7 +616,7 @@ CREATE TABLE `user_tb` (
 
 LOCK TABLES `user_tb` WRITE;
 /*!40000 ALTER TABLE `user_tb` DISABLE KEYS */;
-INSERT INTO `user_tb` VALUES (1,'qwer','$2a$10$T0jUFPeGQlT77UNLDfiI5u5CFL8ks0IFZF.OvMBWB6n8pc8MCZzs2','zxcv','1234@gmail.com');
+INSERT INTO `user_tb` VALUES (1,'qwer','$2a$10$T0jUFPeGQlT77UNLDfiI5u5CFL8ks0IFZF.OvMBWB6n8pc8MCZzs2','zxcv','1234@gmail.com'),(7,'hzuiw','qwer1234!','신신','qwe234@gmail.com'),(9,'minzy','qwer1234!','민지','qweqweqweqweqwe@gmail.com');
 /*!40000 ALTER TABLE `user_tb` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1078,4 +1103,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-02-07 17:29:14
+-- Dump completed on 2025-02-10  0:13:51
