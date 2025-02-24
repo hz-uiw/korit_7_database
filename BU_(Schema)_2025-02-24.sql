@@ -711,6 +711,29 @@ DELIMITER ;
 --
 -- Dumping routines for database 'study'
 --
+/*!50003 DROP FUNCTION IF EXISTS `add` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `add`(
+	num1 int,
+    num2 int
+) RETURNS int
+BEGIN
+
+RETURN num1 + num2;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP FUNCTION IF EXISTS `find_instructor_by_name` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1164,7 +1187,7 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-02-24 22:56:45
+-- Dump completed on 2025-02-24 23:14:15
 CREATE DATABASE  IF NOT EXISTS `board_project` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `board_project`;
 -- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
@@ -1258,7 +1281,7 @@ CREATE TABLE `user_tb` (
   `created_at` timestamp NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1267,7 +1290,7 @@ CREATE TABLE `user_tb` (
 
 LOCK TABLES `user_tb` WRITE;
 /*!40000 ALTER TABLE `user_tb` DISABLE KEYS */;
-INSERT INTO `user_tb` VALUES (1,'aaaa1','a2','a3','a4','a5','a6',1,1,1,1,'2025-02-24 08:12:56'),(2,'hzuiw','qwer1234!','hzuiw@gmail.com','hzuiw',NULL,NULL,1,1,1,1,'2025-02-24 13:53:49');
+INSERT INTO `user_tb` VALUES (1,'aaaa1','a2','a3','a4','a5','a6',1,1,1,1,'2025-02-24 08:12:56'),(2,'hzuiw','qwer1234!','hzuiw@gmail.com','hzuiw',NULL,NULL,1,1,1,1,'2025-02-24 13:53:49'),(3,'minzy','qwer1234!','minzy@gmail.com','minzy',NULL,NULL,1,1,1,1,'2025-02-24 14:10:55'),(4,'qwe234','qwer1234!','qwe234@gmail.com','qwe234',NULL,NULL,1,1,1,1,'2025-02-24 14:11:50');
 /*!40000 ALTER TABLE `user_tb` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1288,7 +1311,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-02-24 22:56:45
+-- Dump completed on 2025-02-24 23:14:15
 CREATE DATABASE  IF NOT EXISTS `mini_post_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `mini_post_db`;
 -- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
@@ -1414,4 +1437,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-02-24 22:56:45
+-- Dump completed on 2025-02-24 23:14:15
